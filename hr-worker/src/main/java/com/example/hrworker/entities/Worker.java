@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
-
 
 @Getter
 @Setter
@@ -15,13 +13,18 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Entity
 @Table(name = "TB_WORKER")
-public class Worker implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Worker {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column
     private String name;
+
+    @Column
     private Double dailyIncome;
+
+
 
 }
