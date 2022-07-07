@@ -4,10 +4,7 @@ import com.example.hrworker.entities.Worker;
 import com.example.hrworker.repositories.WorkerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,9 +21,11 @@ public class WorkerResource {
         return ResponseEntity.ok(list);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/list")
-    public ResponseEntity<List<Worker>> find(){
-        List<Worker> list = workerRepository.findAll();
-        return ResponseEntity.ok(list);
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Worker> findById(@PathVariable Long id){
+        Worker wr = workerRepository.findById(id).get();
+        return ResponseEntity.ok(wr);
     }
+
+
 }
