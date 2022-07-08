@@ -10,7 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @EqualsAndHashCode
 @Entity
-@Table(name = "TB_ROLES")
+@Table(name = "TB_ROLE")
 public class Role {
 
     @Id
